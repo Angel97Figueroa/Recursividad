@@ -4,6 +4,9 @@ public class Main{
 //        System.out.println(serie0N(5));
         int nElementoDeFib=5;
         System.out.println(serieDeFibonacci(nElementoDeFib, 0, 1, nElementoDeFib));
+        String arreglo="hola";
+        char elemento='a';
+        System.out.println(verificarElemEnArray(arreglo, elemento, 0));
     }
 
     public static String serieN0(int n){
@@ -41,5 +44,16 @@ public class Main{
             return "0 1 "+fn+" "+serieDeFibonacci(n-1, fn2, fn1, nInicial);
         }
         return fn+" "+serieDeFibonacci(n-1, fn2, fn1, nInicial);
+    }
+
+    public static int verificarElemEnArray(String arreglo, char elemento, int indice){
+        if(indice>=arreglo.length()){
+            return -1;
+        }
+        if(arreglo.toCharArray()[indice]==elemento){
+            return indice;
+        }
+        indice++;
+        return verificarElemEnArray(arreglo, elemento, indice);
     }
 }
