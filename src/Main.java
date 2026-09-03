@@ -2,7 +2,8 @@ public class Main{
     public static void main(){
 //        System.out.println(serieN0(5));
 //        System.out.println(serie0N(5));
-        System.out.println(serieDeFibonacci(8, 0, 1, 8));
+        int nElementoDeFib=5;
+        System.out.println(serieDeFibonacci(nElementoDeFib, 0, 1, nElementoDeFib));
     }
 
     public static String serieN0(int n){
@@ -19,8 +20,15 @@ public class Main{
         }
     }
 
-    public static String serieDeFibonacci(int n, int fn2, int fn1, int m){
-        if(n==m){
+    public static String serieDeFibonacci(int n, int fn2, int fn1, int nInicial){
+        if(nInicial==2){
+            return "0 1";
+        }else if(nInicial==1){
+            return "0";
+        }else if(nInicial<=0){
+            return "";
+        }
+        if(n==nInicial){
             n-=2;
         }
         if(n==0){
@@ -29,9 +37,9 @@ public class Main{
         int fn=fn1+fn2;
         fn2=fn1;
         fn1=fn;
-        if(n==m-2){
-            return "0 1 "+fn+" "+serieDeFibonacci(n-1, fn2, fn1, m);
+        if(n==nInicial-2){
+            return "0 1 "+fn+" "+serieDeFibonacci(n-1, fn2, fn1, nInicial);
         }
-        return fn+" "+serieDeFibonacci(n-1, fn2, fn1, m);
+        return fn+" "+serieDeFibonacci(n-1, fn2, fn1, nInicial);
     }
 }
