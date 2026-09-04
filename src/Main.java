@@ -114,6 +114,7 @@ public class Main{
             valorActual = Character.getNumericValue(primerCaracter);
         }
         return valorActual + sumarDigitos(cadena.substring(1));
+    }
     public static int verificarElemEnArray(int[] arreglo, int elemento, int indice){
         if(indice>=arreglo.length){
             return -1;
