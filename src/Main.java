@@ -12,6 +12,13 @@ public class Main{
         System.out.println(orejitasDeConejo);
         System.out.println(multiplicar(5,10));
         System.out.println(esPrimo(2));
+        int[] arreglo=new int[5];
+        for(int i=0;i<arreglo.length;i++) arreglo[i]=i;
+        int elemento=4;
+        System.out.println(verificarElemEnArray(arreglo, elemento, 0));
+        String cadena="hola";
+        char c1='l', c2='a';
+        System.out.println(elementosConsecutivos(cadena, c1, c2, 0));
     }
 
     public static String serieN0(int n){
@@ -107,5 +114,20 @@ public class Main{
             valorActual = Character.getNumericValue(primerCaracter);
         }
         return valorActual + sumarDigitos(cadena.substring(1));
+    public static int verificarElemEnArray(int[] arreglo, int elemento, int indice){
+        if(indice>=arreglo.length){
+            return -1;
+        }
+        if(arreglo[indice]==elemento){
+            return indice;
+        }
+        indice++;
+        return verificarElemEnArray(arreglo, elemento, indice);
+    }
+
+    public static boolean elementosConsecutivos(String cadena, char c1, char c2, int indice){
+        if(indice>=cadena.length()-1) return false;
+        if(cadena.toCharArray()[indice]==c1 && cadena.toCharArray()[indice+1]==c2) return true;
+        return elementosConsecutivos(cadena, c1, c2, indice+1);
     }
 }
