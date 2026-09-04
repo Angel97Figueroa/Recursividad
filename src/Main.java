@@ -1,13 +1,16 @@
 public class Main{
     public static void main(){
-//        System.out.println(serieN0(5));
-//        System.out.println(serie0N(5));
+        System.out.println(serieN0(5));
+        System.out.println(serie0N(5));
         int nElementoDeFib=5;
         System.out.println(serieDeFibonacci(nElementoDeFib, 0, 1, nElementoDeFib));
         int[] arreglo=new int[5];
         for(int i=0;i<arreglo.length;i++) arreglo[i]=i;
         int elemento=4;
         System.out.println(verificarElemEnArray(arreglo, elemento, 0));
+        String cadena="hola";
+        char c1='l', c2='a';
+        System.out.println(elementosConsecutivos(cadena, c1, c2, 0));
     }
 
     public static String serieN0(int n){
@@ -58,7 +61,9 @@ public class Main{
         return verificarElemEnArray(arreglo, elemento, indice);
     }
 
-//    public static boolean elementosSeguidos(String cadena){
-//
-//    }
+    public static boolean elementosConsecutivos(String cadena, char c1, char c2, int indice){
+        if(indice>=cadena.length()-1) return false;
+        if(cadena.toCharArray()[indice]==c1 && cadena.toCharArray()[indice+1]==c2) return true;
+        return elementosConsecutivos(cadena, c1, c2, indice+1);
+    }
 }
