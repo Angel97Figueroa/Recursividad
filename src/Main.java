@@ -1,3 +1,7 @@
+import java.math.*;
+
+import static java.lang.Math.sqrt;
+
 public class Main{
     public static void main(){
         System.out.println(serieN0(5));
@@ -7,6 +11,7 @@ public class Main{
         int orejitasDeConejo= orejasDeConejo(17);
         System.out.println(orejitasDeConejo);
         System.out.println(multiplicar(5,10));
+        System.out.println(esPrimo(2));
     }
 
     public static String serieN0(int n){
@@ -63,5 +68,44 @@ public class Main{
         } else {
             return -a + multiplicar(a, b + 1);
         }
+    }
+
+    public static boolean esPrimo(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        return esPrimo(num, 2);
+    }
+    private static boolean esPrimo(int num, int divisor) {
+        if (divisor > sqrt(num)) {
+            return true;
+        }
+        if (num % divisor == 0) {
+            return false;
+        }
+        return esPrimo(num, divisor + 1);
+    }
+
+    public static int valorMaximo(int[] arreglo, int indice) {
+        if (indice == arreglo.length - 1) {
+            return arreglo[indice];
+        }
+        int maxDelResto = valorMaximo(arreglo, indice + 1);
+        if (arreglo[indice] > maxDelResto) {
+            return arreglo[indice];
+        } else {
+            return maxDelResto;
+        }
+    }
+    public static int sumarDigitos(String cadena) {
+        if (cadena.isEmpty()) {
+            return 0;
+        }
+        char primerCaracter = cadena.charAt(0);
+        int valorActual = 0;
+        if (Character.isDigit(primerCaracter)) {
+            valorActual = Character.getNumericValue(primerCaracter);
+        }
+        return valorActual + sumarDigitos(cadena.substring(1));
     }
 }
