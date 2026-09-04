@@ -126,9 +126,9 @@ public class Main{
         return verificarElemEnArray(arreglo, elemento, indice);
     }
 
-    public static boolean elementosConsecutivos(String cadena, char c1, char c2, int indice){
-        if(indice>=cadena.length()-1) return false;
-        if(cadena.toCharArray()[indice]==c1 && cadena.toCharArray()[indice+1]==c2) return true;
-        return elementosConsecutivos(cadena, c1, c2, indice+1);
+    public static boolean elementosConsecutivos(String cad, char c1, char c2, int indice){
+        if(indice>=cad.length()-1) return false;
+        if(cad.toCharArray()[indice]==c1 && cad.toCharArray()[indice+1]==c2) return true;
+        return elementosConsecutivos(cad, c1, c2, indice+1);
     }
 }
